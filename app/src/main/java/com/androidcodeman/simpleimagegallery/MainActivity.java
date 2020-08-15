@@ -1,17 +1,22 @@
 package com.androidcodeman.simpleimagegallery;
 
 import android.Manifest;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
@@ -34,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements itemClickListener
     RecyclerView folderRecycler;
     TextView empty;
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
+    Toolbar toolbar;
 
     /**
      * Request the user for permission to access media files and read images on the device
@@ -57,6 +63,9 @@ public class MainActivity extends AppCompatActivity implements itemClickListener
                     new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                     MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
         //____________________________________________________________________________________
+
+        toolbar = findViewById(R.id.custome_toolbar);
+        setSupportActionBar(toolbar);
 
         empty =findViewById(R.id.empty);
 
